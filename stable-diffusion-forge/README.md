@@ -4,15 +4,15 @@
 
 ## モデルを追加する
 
-環境変数`MODEL_LIST_URL`にスクリプトのURLを指定することで、ダウンロードするモデル一覧を上書きできます。
+環境変数`MODEL_LIST_URL`にスクリプトのURLを指定することで、ダウンロードするモデルリストを上書きできます。
 
 実際の例は`model_list.sh`ファイルを参照してください。
 
 モデルのダウンロードはバックグラウンドで行われるため、WebUIの起動完了とダウンロードの完了のタイミングは一致しないことに注意してください。  
 ダウンロード状況はログに表示されます。
 
-また、Civitaiは一部モデルのダウンロードにトークンが求められるので、`CIVITAI_TOKEN`などで設定出来るようにしておくと良いでしょう。  
-このようなケースのために、JSONではなくShellScriptで書く必要がありました。
+また、Civitaiはモデルのダウンロードにトークンが求められることがあるので、`CIVITAI_TOKEN`などで設定出来るようにしておくと良いでしょう。  
+このようなケースのために、モデルリストはJSONではなくShellScriptで書く必要がありました。
 
 ## 起動スクリプトをカスタムする
 
@@ -21,4 +21,14 @@
 実際の例は`custom_script.sh`ファイルを参照してください。
 
 ファイルのダウンロードには`git`や`curl`が使えます。  
-ユーザー権限で動作するので、システムパッケージの追加などは出来ません。
+このスクリプトはユーザー権限で動作するので、システムパッケージの追加などは出来ません。
+
+## 例
+
+この設定を使う場合は以下のように環境変数を設定します。
+
+```
+MODEL_LIST_URL=https://raw.githubusercontent.com/hdae/runpod-custom-scripts/refs/heads/main/stable-diffusion-forge/model_list.sh
+CUSTOM_SCRIPT_URL=https://raw.githubusercontent.com/hdae/runpod-custom-scripts/refs/heads/main/stable-diffusion-forge/custom_script.sh
+CIVITAI_TOKEN=[civitaiから発行したトークン]
+```
