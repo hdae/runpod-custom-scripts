@@ -1,5 +1,9 @@
+
+# Add extension "stable-diffusion-webui-images-browser"
+git clone --depth=1 "https://github.com/AlUlkesh/stable-diffusion-webui-images-browser" /workspace/extensions/stable-diffusion-webui-images-browser
+
 # Add extension "a1111-sd-webui-tagcomplete"
-git clone --depth=1 "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete.git" /workspace/extensions/tag-autocomplete
+git clone --depth=1 "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete" /workspace/extensions/tag-autocomplete
 
 # Install danbooru-tagcomplete-extra (Japanese tag completion)
 rm /workspace/extensions/tag-autocomplete/tags/danbooru.csv
