@@ -298,7 +298,7 @@
     "live_previews_enable": true,
     "live_previews_image_format": "png",
     "show_progress_grid": true,
-    "show_progress_every_n_steps": 2,
+    "show_progress_every_n_steps": 1,
     "show_progress_type": "Approx NN",
     "live_preview_allow_lowvram_full": false,
     "live_preview_content": "Prompt",
@@ -365,25 +365,29 @@
     "xl_i2i_width": 1024,
     "xl_i2i_height": 1024,
     "xl_i2i_cfg": 5,
-    "xl_GPU_MB": 23216,
     "xl_t2i_sampler": "Euler a",
     "xl_t2i_scheduler": "Karras",
     "xl_i2i_sampler": "DPM++ 2M SDE",
     "xl_i2i_scheduler": "Karras",
     "localization": "None",
     "quick_setting_list": [],
-    "ui_tab_order": [],
-    "hidden_tabs": [
-        "Img2img",
-        "Spaces",
-        "Extras",
-        "Checkpoint Merger"
-    ],
-    "tabs_without_quick_settings_bar": [
-        "Img2img",
+    "ui_tab_order": [
         "Spaces",
         "Extras",
         "Checkpoint Merger",
+        "Extensions"
+    ],
+    "hidden_tabs": [
+        "Spaces",
+        "Extras",
+        "Checkpoint Merger",
+        "Extensions"
+    ],
+    "tabs_without_quick_settings_bar": [
+        "Txt2img",
+        "Img2img",
+        "PNG Info",
+        "Image Browser",
         "Settings",
         "Extensions"
     ],
@@ -480,8 +484,5 @@
     "deepbooru_use_spaces": true,
     "deepbooru_escape": true,
     "deepbooru_filter_tags": "",
-    "sd_model_checkpoint": "waiNSFWIllustrious_v140.safetensors",
-    "forge_preset": "xl",
-    "CLIP_stop_at_last_layers": 2,
-    "sd_checkpoint_hash": "bdb59bac77d94ae7a55ff893170f9554c3f349e48a1b73c0c17c0b7c6f4d41a2"
+    "forge_preset": "xl"
 }
