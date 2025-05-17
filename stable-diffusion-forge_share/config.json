@@ -377,9 +377,7 @@
         "Img2img",
         "Spaces",
         "Extras",
-        "Checkpoint Merger",
-        "Settings",
-        "Extensions"
+        "Checkpoint Merger"
     ],
     "tabs_without_quick_settings_bar": [
         "Img2img",
