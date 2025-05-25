@@ -1,34 +1,37 @@
-# Custom script for [Stable Diffusion Forge](https://runpod.io/console/deploy?template=whdfh5h5d4&ref=oxrbnozc)
+# Custom script for [Stable Diffusion Forge Template for RunPod](https://runpod.io/console/deploy?template=whdfh5h5d4&ref=oxrbnozc)
 
-テンプレートをより柔軟に使えるようにします。
+Makes the template more flexible to use.
 
-## モデルを追加する
+## Adding Models
 
-環境変数`MODEL_LIST_URL`にスクリプトのURLを指定することで、ダウンロードするモデルリストを上書きできます。
+You can override the list of models to download by specifying a script URL in
+the environment variable `MODEL_LIST_URL`.\
+Please refer to the `model_list.sh` file for actual examples.
 
-実際の例は`model_list.sh`ファイルを参照してください。
+Note that model downloads are performed in the background, so the timing of
+WebUI startup completion and download completion may not match.\
+Download progress will be displayed in the logs.
 
-モデルのダウンロードはバックグラウンドで行われるため、WebUIの起動完了とダウンロードの完了のタイミングは一致しないことに注意してください。  
-ダウンロード状況はログに表示されます。
+Also, Civitai sometimes requires tokens for model downloads, so it's recommended
+to set up something like `CIVITAI_TOKEN`.\
+For cases like this, the model list needed to be written as a Shell Script
+rather than JSON.
 
-また、Civitaiはモデルのダウンロードにトークンが求められることがあるので、`CIVITAI_TOKEN`などで設定出来るようにしておくと良いでしょう。  
-このようなケースのために、モデルリストはJSONではなくShellScriptで書く必要がありました。
+## Customizing Startup Scripts
 
-## 起動スクリプトをカスタムする
+You can add startup processing by specifying a script URL in the environment
+variable `CUSTOM_SCRIPT_URL`.\
+Please refer to the `custom_script.sh` file for actual examples.
 
-環境変数`CUSTOM_SCRIPT_URL`にスクリプトのURLを指定することで、起動時の処理を追加できます。
+You can use `curl` or `axel` for file downloads.\
+This script runs with user privileges, so you cannot add system packages.
 
-実際の例は`custom_script.sh`ファイルを参照してください。
+## Example
 
-ファイルのダウンロードには`git`や`curl`が使えます。  
-このスクリプトはユーザー権限で動作するので、システムパッケージの追加などは出来ません。
-
-## 例
-
-この設定を使う場合は以下のように環境変数を設定します。
+To use this configuration, set the environment variables as follows:
 
 ```
 MODEL_LIST_URL=https://raw.githubusercontent.com/hdae/runpod-custom-scripts/refs/heads/main/stable-diffusion-forge/model_list.sh
 CUSTOM_SCRIPT_URL=https://raw.githubusercontent.com/hdae/runpod-custom-scripts/refs/heads/main/stable-diffusion-forge/custom_script.sh
-CIVITAI_TOKEN=[civitaiから発行したトークン]
+CIVITAI_TOKEN=[token issued from civitai]
 ```
