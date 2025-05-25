@@ -9,7 +9,7 @@
 
 # Add extension "external-image-viewer"
 [[ -e /workspace/extensions/external-image-viewer ]] || \
-    git clone --depth=1 "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete" /workspace/extensions/tag-autocomplete
+    git clone --depth=1 "https://github.com/hdae/external-image-viewer" /workspace/extensions/external-image-viewer
 
 # Install danbooru-tagcomplete-extra (Japanese tag completion)
 rm /workspace/extensions/tag-autocomplete/tags/danbooru.csv
