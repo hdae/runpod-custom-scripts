@@ -7,6 +7,10 @@
 [[ -e /workspace/extensions/tag-autocomplete ]] || \
     git clone --depth=1 "https://github.com/DominikDoom/a1111-sd-webui-tagcomplete" /workspace/extensions/tag-autocomplete
 
+# Add extension "sd-dynamic-prompts"
+[[ -e /workspace/extensions/sd-dynamic-prompts ]] || \
+    git clone --depth=1 "https://github.com/adieyal/sd-dynamic-prompts" /workspace/extensions/sd-dynamic-prompts
+
 # Install danbooru-tagcomplete-extra (Japanese tag completion)
 rm /workspace/extensions/tag-autocomplete/tags/danbooru.csv
 curl -fsSL "https://github.com/hdae/danbooru-tagcomplete-extra/releases/download/2025-09-25/danbooru.csv" -o /workspace/extensions/tag-autocomplete/tags/danbooru.csv
